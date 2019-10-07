@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1480.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.preLobby">
+    <center>
+        <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #303030;" BorderPane.alignment="CENTER">
+            <top>
+                <GridPane prefHeight="346.0" prefWidth="1920.0" BorderPane.alignment="CENTER">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="110.0" minHeight="5.0" prefHeight="6.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="226.0" minHeight="10.0" prefHeight="170.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="128.0" minHeight="10.0" prefHeight="128.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <Label prefHeight="178.0" prefWidth="638.0" text="Stock Market Challenge" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                            <font>
+                                <Font size="61.0" />
+                            </font>
+                        </Label>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                            <image>
+                                <Image url="@image/StockMarket.jpg" />
+                            </image>
+                        </ImageView>
+                    </children>
+                </GridPane>
+            </top>
+            <center>
+                <GridPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="297.0" prefWidth="717.0" BorderPane.alignment="CENTER">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="594.0" minWidth="10.0" prefWidth="298.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="459.0" minWidth="10.0" prefWidth="286.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="459.0" minWidth="10.0" prefWidth="286.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="65.0" minHeight="10.0" prefHeight="62.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="65.0" minHeight="10.0" prefHeight="97.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="65.0" minHeight="0.0" prefHeight="53.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="130.0" minHeight="10.0" prefHeight="69.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="130.0" minHeight="10.0" prefHeight="69.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <Button fx:id="enterNewLobby" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#createLobbyButton" prefHeight="45.0" prefWidth="305.0" style="-fx-background-color: #0050ff;" text="Create New Lobby" textFill="WHITE" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS">
+                            <cursor>
+                                <Cursor fx:constant="OPEN_HAND" />
+                            </cursor>
+                     <GridPane.margin>
+                        <Insets right="5.0" />
+                     </GridPane.margin></Button>
+                        <ToggleButton fx:id="joinExisting" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="45.0" prefWidth="72.0" style="-fx-background-color: #0050ff;" text="Join Existing Lobby" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER">
+                            <cursor>
+                                <Cursor fx:constant="OPEN_HAND" />
+                            </cursor>
+                     <GridPane.margin>
+                        <Insets right="5.0" />
+                     </GridPane.margin></ToggleButton>
+                        <Button fx:id="joinSubmit" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" onAction="#submitLobbyCodeButton" prefHeight="45.0" prefWidth="249.0" style="-fx-background-color: #0050ff;" text="Submit" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                            <cursor>
+                                <Cursor fx:constant="OPEN_HAND" />
+                            </cursor>
+                     <GridPane.margin>
+                        <Insets right="5.0" />
+                     </GridPane.margin></Button>
+                        <TextField fx:id="joinCode" alignment="CENTER" prefHeight="45.0" prefWidth="272.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets right="5.0" />
+                     </GridPane.margin></TextField>
+                  <Label fx:id="existingCodeText" onMouseClicked="#clearErrorMessage" text="enter an existing code here and get ready to start trading!" textAlignment="CENTER" textFill="WHITE" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Label fx:id="incorrectCode" alignment="CENTER" onMouseClicked="#clearErrorMessage" text="Incorrect code. Try again" textFill="#f20000" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="goLeaderBoardButton" layoutX="374.0" layoutY="16.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#goToLeaderBoard" prefHeight="45.0" prefWidth="72.0" style="-fx-background-color: #0050ff;" text="LeaderBoard" textFill="WHITE" GridPane.columnIndex="2">
+                     <cursor>
+                        <Cursor fx:constant="OPEN_HAND" />
+                     </cursor>
+                     <GridPane.margin>
+                        <Insets right="5.0" />
+                     </GridPane.margin>
+                  </Button>
+                    </children>
+                </GridPane>
+            </center>
+        </BorderPane>
+    </center>
+    <left>
+        <VBox prefHeight="880.0" prefWidth="30.0" style="-fx-background-color: #303030;" BorderPane.alignment="CENTER" />
+    </left>
+    <right>
+        <VBox prefHeight="200.0" prefWidth="30.0" style="-fx-background-color: #303030;" BorderPane.alignment="CENTER" />
+    </right>
+    <top>
+        <HBox prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #303030;" BorderPane.alignment="CENTER" />
+    </top>
+    <bottom>
+        <HBox prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #303030;" BorderPane.alignment="CENTER" />
+    </bottom>
+</BorderPane>
